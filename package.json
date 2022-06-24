@@ -1,5 +1,27 @@
 {
   "dependencies": {
+    "express": "^4.18.1",
     "react-router-dom": "^5.3.0"
+  },
+  "name": "servicioahora",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FedericoGramajo/ServicioAhora.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FedericoGramajo/ServicioAhora/issues"
+  },
+  "homepage": "https://github.com/FedericoGramajo/ServicioAhora#readme",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.18"
   }
 }

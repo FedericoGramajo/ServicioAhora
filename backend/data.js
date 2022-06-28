@@ -1,79 +1,76 @@
 const data = {
-    products: [
+    rubros:[
+        {
+            _id:'1',
+            categoria:'Plomeria',
+            monto:300,
+            image: "../images/plomeria.png"
+        },
+        {
+            _id:'2',
+            categoria:'Cerrajeria',
+            monto:100,
+            image: "../images/cerrajeria.png"
+        },
+        {
+            _id:'3',
+            categoria:'Electricista',
+            monto:500,
+            image: "../images/electricista.png"
+        },
+        {
+            _id:'4',
+            categoria:'Electrodomesticos',
+            monto:600,
+            image: "../images/electro.png"
+        }
+    ],
+    servicios: [
         {
             _id: '1',
-            name: 'Nike Slim Shirt',
-            category: 'Shirts',
-            image: "../images/NikeShirt.png",
-            price: 100,
-            countInStock: 22,
-            brand: 'Nike',
-            rating: 4.5,
-            numReviews: 18,
-            description: 'Currado paaa'
+            rubro_id:4,
+            name: 'Osvaldo',
+            image: "../images/defaultMan.png",
+            matricula: '1112222',
+            rating: 2,
+            numReviews: 3,
         },
         {
             _id: '2',
-            name: 'Adidas Fit Shirt',
-            category: 'Shirts',
-            image: "../images/AdidasShirt.png",
-            price: 122,
-            countInStock: 0,
-            brand: 'Adidas',
-            rating: 4,
-            numReviews: 11,
-            description: 'aaaaaaaaaaaaa '
+            rubro_id:1,
+            name: 'Roberto',
+            image: "../images/defaultMan.png",
+            matricula: '444444',
+            rating: 5,
+            numReviews: 3,
         },
         {
             _id: '3',
-            name: 'Lacoste Free Shirt',
-            category: 'Shirts',
-            image: "../images/LacosteShirt.png",
-            price: 150,
-            countInStock: 11,
-            brand: 'Lacoste',
-            rating: 4,
-            numReviews: 1,
-            description: 'wwwwwwwwwww'
+            rubro_id:4,
+            name: 'Daniel',
+            image: "../images/defaultMan.png",
+            matricula: '1112222',
+            rating: 3,
+            numReviews: 3,
         },
         {
             _id: '4',
-            name: 'Nike Slim Pant',
-            category: 'Pants',
-            image: "../images/NikePant.png",
-            price: 99,
-            countInStock: 33,
-            brand: 'Nike',
-            rating: 4,
-            numReviews: 7,
-            description: 'wwwwwewe'
+            rubro_id:3,
+            name: 'Martin',
+            image: "../images/defaultMan.png",
+            matricula: '4444444',
+            rating: 5,
+            numReviews: 3,
         },
         {
             _id: '5',
-            name: 'Puma Slim Pant',
-            category: 'Pants',
-            image: "../images/PumaPant.png",
-            price: 89,
-            countInStock: 100,
-            brand: 'Puma',
-            rating: 5,
+            rubro_id:3,
+            name: 'Lucas',
+            image: "../images/defaultMan.png",
+            matricula: '77777',
+            rating: 1,
             numReviews: 3,
-            description: 'wwwwwewe'
         },
-
-        {
-            _id:'6',
-            name:'Adidas Slim Pant',
-            category:'Pants',
-            image:"../images/AdidasPant.png",
-            price: 99,
-            countInStock: 2,
-            brand:'Adidas',
-            rating:3.5,
-            numReviews:5,
-            description:'wwwwwewe'
-},
-
     ],
 };
 export default data;

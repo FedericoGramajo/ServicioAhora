@@ -2,13 +2,22 @@ import express from "express";
 import data from './data.js'
 const app = express()
 
-app.get('/api/products', (req, res) =>{
+app.get('/api/products', (req, res) => {
     res.send(data.products)
-})
-app.get('/', (req, res) =>{
+});
+app.get('/', (req, res) => {
     res.send('Server is ready')
 });
-const port= process.env.PORT || 5000
-app.listen(port,()=>{12
+app.get('/api/rubros', (req, res) => {
+    res.send(data.rubros)
+});
+app.get('/api/servicios/:id', (req, res) => {
+
+    const id = req.params.id;
+    res.json(data.servicios.find({ rubro_id: { id } }))
+});
+const port = process.env.PORT || 5000
+app.listen(port, () => {
+    12
     console.log(`Server at http://localhost:${port}`)
 })

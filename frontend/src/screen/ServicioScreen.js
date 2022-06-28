@@ -1,8 +1,7 @@
 import React, { useEffect, useReducer } from 'react';
 import Product from '../components/Product';
-import Rubro from '../components/Rubro';
 import LoadingBox from '../components/LoadingBox';
-import MessageBox   from '../components/MessageBox'
+import MessageBox from '../components/MessageBox'
 import axios from 'axios';
 import logger from 'use-reducer-logger';
 
@@ -11,7 +10,7 @@ const reducer = (state, action) => {
         case 'FETCH_REQUEST':
             return { ...state, loading: true };
         case 'FETCH_SUCCESS':
-            return { ...state, rubros: action.payload, loading: false };
+            return { ...state, products: action.payload, loading: false };
         case 'FETCH_FAIL':
             return { ...state, loading: false, error: action.payload };
         default:
@@ -20,9 +19,9 @@ const reducer = (state, action) => {
     }
 };
 
-function HomeScreen() {
-    const [{ loading, error, rubros }, dispatch] = useReducer((reducer), {
-        rubros: [],
+function HomeScreen(props) {
+    const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
+        products: [],
         loading: true,
         error: '',
     });
@@ -30,7 +29,12 @@ function HomeScreen() {
         const fetchData = async () => {
             dispatch({ type: 'FETCH_REQUEST' })
             try {
-                const result = await axios.get('/api/rubros');
+                // const { data } = await axios.get('/api/products');
+                const result = await axios.get('/api/servicios', {
+                    params: {
+                        id: props.match.params.id
+                    }
+                });
                 dispatch({ type: 'FETCH_SUCCESS', payload: result });
             } catch (err) {
                 dispatch({ type: 'FETCH_FAIL', payload: err.message });
@@ -42,15 +46,15 @@ function HomeScreen() {
         <div>
 
             <div className="row center">
-            {loading ? (
-                <LoadingBox></LoadingBox>
-            ) :
-                error ? (
-                    <MessageBox variant='danger'>{error}</MessageBox>
-                ) : (
-                    rubros.data.map((rubro) => (
-                    <Rubro key={rubro._id} rubro={rubro}></Rubro> //aca le tenego que indicar el mismo paratro que se espera en el componente que llamo
-                            )))
+                {loading ? (
+                    <LoadingBox></LoadingBox>
+                ) :
+                    error ? (
+                        <MessageBox variant='danger'>{error}</MessageBox>
+                    ) : (
+                        products.data.map(product => (
+                            <Product key={product._id} product={product}></Product>
+                        )))
                 }
 
             </div>

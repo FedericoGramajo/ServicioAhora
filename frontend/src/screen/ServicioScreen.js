@@ -30,11 +30,7 @@ function HomeScreen(props) {
             dispatch({ type: 'FETCH_REQUEST' })
             try {
                 // const { data } = await axios.get('/api/products');
-                const result = await axios.get('/api/servicios', {
-                    params: {
-                        id: props.match.params.id
-                    }
-                });
+                const result = await axios.get('/api/servicios/' + props.match.params.id);
                 dispatch({ type: 'FETCH_SUCCESS', payload: result });
             } catch (err) {
                 dispatch({ type: 'FETCH_FAIL', payload: err.message });
